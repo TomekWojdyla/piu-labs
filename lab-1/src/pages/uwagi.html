@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab-1: Uwagi - Tomasz Wojdyła</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="../../index.html">Powrót do listy Lab-1</a>
+      <hr />
+    </nav>
+    <main>
+      <header>
+        <h1>Uwagi i przemyślenia o formularzach w HTML</h1>
+      </header>
+      <article>
+        <section>
+          <h2>Mocne strony</h2>
+          <p>
+            Stworzenie formularza w HTML wydaje się bardzo przystępne dzięki
+            stosunkowo prostej budowie i czytelnemu kodowi. Dostępne domyślnie
+            różne typy pól upraszczają budowanie narzędzia do zbierania danych
+            od użytkownika, dostarczające "out-of-the-box" kontrolki dopasowane
+            do danych i oferujące wiele możliwości walidacji danych,
+            zapobiegające wysłaniu na serwer danych które mogą z założenia nie
+            być poprawne (z punktu widzenia folmularza). Duży plus również za
+            szerokie wsparcie wśród przeglądarek, chociaż mozna wyczytać, że w
+            przypadku nowszych kontrolek z HTML5 pojawiają się problemy z
+            kompatybilnością, dla starszych przeglądarek lub różnicowania
+            działania i wyglądu kontrolek w zależnośći od przeglądarki.
+          </p>
+        </section>
+        <section>
+          <h2>Słabe strony</h2>
+          <p>
+            Choć nie dotyczy to samych formularzy, zadanie to obnażyło jak
+            prosto czasem "zakręcić się" w stylowaniu elementów przy wsparciu
+            CSS. Nie wszystkie zależności pomiędzy zagnieżdżonymi elementami są
+            oczywiste i skrupulatne porządkownaie zawartości CSS naprawde sie
+            przydaje - <strong>komentarze w kodzie mile widziane. </strong>
+          </p>
+          <p>
+            Co do samych formularzy natomiast, to na front wysuwa się odczucie
+            dość <strong>małej elastyczności</strong>, która przełoży sie na
+            trudności z budowaniem bardziej skomplikowanych i internatywnych
+            stron, w których odpowiedzi na kolejne pytania mogą powodować
+            przekonfigurowanie dalszej części formularza.
+          </p>
+          <p>
+            Dało sie zauważyć również, że chyba nie wszystkie wbudowane elementy
+            dają się stylować (np. komunikat o niespełnionych warunkach
+            walidacji),
+          </p>
+          <img
+            src="../images/validation.png"
+            alt="Komunikat błędu walidacji danych"
+          />
+          <p>
+            jak również nie wszystkie typy kontrolek są w pełni konfigurowalne
+            (np. niemożliwym wydaje się zmiana formatowania daty dla kalendarza,
+            które wymuszone jest przez przeglądarkę/system).
+          </p>
+          <img
+            src="../images/calendar-format.png"
+            alt="Konfiguracja daty w kontrolce"
+          />
+        </section>
+        <section>
+          <h2>Czy warto?</h2>
+          <p>
+            <strong>Raczej tak 😉</strong> Natomiast wydaje się, że formularze
+            HTML najlepiej poradzą sobie w prostych zastosowaniach (choćby
+            takich jak skromny dialog logowania, jakaś prosta "statyczna"
+            ankieta czy podanie danych kontaktowych).
+          </p>
+          <p>
+            W momencie kiedy zestaw danych do wprowadzenie będzie zawierał
+            bardziej rozbudowaną logikę biznesową, skomplikowane zasady
+            walidacji czy też będziemy oczekiwać bardziej dynamicznego podejścia
+            do interakcji z użytkownikiem - zapewne nie obejście się bez
+            JavaScript'u...
+          </p>
+        </section>
+        <footer>
+          <h4>Nauki ciąg dalszy nastąpi...🙃</h4>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

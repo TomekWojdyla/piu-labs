@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab-1: Login - Tomasz Wojdyła</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="../../index.html">Powrót do listy Lab-1</a>
+      <hr />
+    </nav>
+    <main class="center-flex">
+      <form action="https://httpbin.org/post" method="post" class="login-box">
+        <section>
+          <h1 class="login-title">Logowanie</h1>
+          <h4 class="subtitle">
+            Wpisz swoje dane i kliknij przycisk 'Zaloguj'.
+          </h4>
+        </section>
+        <section>
+          <div class="form-item">
+            <label for="email">Email</label>
+            <input
+              required
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Wpisz email użytkownika"
+            />
+          </div>
+
+          <div class="form-item">
+            <label for="password">Hasło</label>
+            <input
+              required
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Wpisz hasło użytkownika"
+            />
+          </div>
+          <input type="submit" value="Zaloguj" />
+        </section>
+      </form>
+    </main>
+  </body>
+</html>

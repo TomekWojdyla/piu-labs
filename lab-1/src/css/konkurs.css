@@ -1,0 +1,151 @@
+/*wyśrodkowanie poziome nawigacji*/
+nav {
+  text-align: center;
+}
+
+main {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px; /*szerokość okna*/
+  padding: 48px;
+  gap: 25px;
+}
+
+/*nagłówek formularza*/
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-toggle {
+  font-size: 40px;
+}
+
+.hidden-checkbox {
+  display: none;
+}
+
+/*formularz*/
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 36px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #888888;
+}
+
+.form-item-top {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 14px;
+}
+
+label {
+  cursor: pointer;
+}
+
+input {
+  padding: 12px 10px;
+  cursor: pointer;
+}
+
+select {
+  padding: 12px 10px;
+  cursor: pointer;
+}
+
+input[type='color'] {
+  width: 100%;
+  padding: 0;
+  height: 48px;
+}
+
+/*czcionka 16px w polach edycyjnych input*/
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='date'] {
+  font-size: 16px;
+  font-family: inherit;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/*czcionka 16px w polu 'select'*/
+select {
+  font-size: 16px;
+  font-family: inherit;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+/*dla checkboxa akceptacji regulaminu*/
+.extra-margin {
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+
+/* Przycisk submit */
+input[type='submit'] {
+  margin-top: 8px;
+  padding: 16px;
+  color: white;
+  background-color: #4caf50 !important;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  &:hover {
+    background-color: #45a049 !important;
+  }
+}
+
+/*DARK THEME*/
+
+body:has(#theme-toggle:checked) input {
+  background-color: #383838;
+  color: white;
+  border-color: #444444;
+}
+
+body:has(#theme-toggle:checked) select {
+  background-color: #383838;
+  color: white;
+  border-color: #444444;
+}
+
+body:has(#theme-toggle:checked) form {
+  background-color: #1c1c1c;
+  color: white;
+}
+
+/* dark mode dla ikony kalendarza */
+body:has(#theme-toggle:checked)
+  input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert();
+}

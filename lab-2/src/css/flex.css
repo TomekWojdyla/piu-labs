@@ -1,0 +1,218 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* zmienne - domyślny motyw niebieski*/
+:root {
+  --container-bg: #f4f5dc;
+  --container-border-color: #fe7f00;
+  --container-border-radius: 8px;
+
+  /* domyślny wygląd kafelków - niebieski */
+  --item-bg: blue;
+  --item-text-color: white;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+label {
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+header {
+  margin-bottom: 1rem;
+}
+
+.theme-picker {
+  background-color: var(--container-bg);
+  border-radius: var(--container-border-radius);
+  border: 2px solid var(--container-border-color);
+  padding: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--container-bg);
+  border-radius: var(--container-border-radius);
+  border: 2px solid var(--container-border-color);
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--item-bg);
+  color: var(--item-text-color);
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: var(--container-border-radius);
+  flex: 0 1 30%;
+
+  @media (max-width: 1024px) {
+    flex: 0 1 50%;
+  }
+}
+
+/* Motyw czerwony */
+/* ==================================== */
+
+header:has(input[value='red']:checked) + .container {
+  /* nadpisanie zmiennych */
+  --item-bg: red;
+
+  /* wstepna konfiguracja >1024px */
+  .item {
+    flex: 1 1 0;
+
+    @media (max-width: 1024px) {
+      flex: 0 1 calc(50% - 0.5rem); /* po 2 itemy w rzedzie dla małych ekranów */
+    }
+  }
+
+  /* zmiana kolejności */
+  .item:nth-child(1) {
+    order: 3; /* item 1 pojawia sie jako trzeci */
+    flex: 2 1 0; /* 2x tyle miejsca co pozostałe */
+    font-weight: bold; /* cyfra 1 pogrubiona */
+
+    @media (max-width: 1024px) {
+      flex: 0 1 100%; /* item 1 na całą szerokość dla mniejszych ekranów */
+    }
+  }
+
+  .item:nth-child(2) {
+    order: 1;
+  }
+
+  .item:nth-child(3) {
+    order: 2;
+  }
+
+  .item:nth-child(4) {
+    order: 4;
+  }
+
+  .item:nth-child(5) {
+    order: 5;
+  }
+
+  .item:nth-child(1)::after {
+    content: '(Jestem większy i na środku!)';
+    display: block;
+    font-size: 0.8em; /* 20% pomniejszona*/
+    font-weight: normal; /* brak pogrubienia dla dopisku */
+    margin-top: 0.25rem;
+  }
+}
+
+/* Motyw zielony */
+/* ==================================== */
+
+header:has(input[value='green']:checked) + .container {
+  /* nadpisanie zmiennych */
+  --item-bg: green;
+
+  /* wstepna konfiguracja >1024px */
+  .item {
+    flex: 0 0 auto;
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+      flex-direction: row; /* emoji + numer w jednej linii */
+      justify-content: center;
+    }
+  }
+
+  /* szerokości malejące od 1 do 5 */
+  .item:nth-child(1) {
+    flex-grow: 5;
+
+    @media (max-width: 1024px) {
+      order: 5; /* ostatni - pierwszy od dołu */
+      width: 90%; /* szerokosc */
+    }
+  }
+  .item:nth-child(2) {
+    flex-grow: 4;
+
+    @media (max-width: 1024px) {
+      order: 4;
+      width: 75%;
+    }
+  }
+  .item:nth-child(3) {
+    flex-grow: 3;
+
+    @media (max-width: 1024px) {
+      order: 3;
+      width: 60%;
+    }
+  }
+  .item:nth-child(4) {
+    flex-grow: 2;
+
+    @media (max-width: 1024px) {
+      order: 2;
+      width: 45%;
+    }
+  }
+  .item:nth-child(5) {
+    flex-grow: 1;
+
+    @media (max-width: 1024px) {
+      order: 1;
+      width: 30%;
+    }
+  }
+
+  /* emoji w 1-ym kafelku */
+  .item:nth-child(1)::before,
+  .item:nth-child(1)::after {
+    content: '😀';
+    display: inline-block;
+    margin: 0 0.5rem;
+    font-size: 1em;
+    transform: scale(2); /* transform wpływa tylko na emoji */
+  }
+
+  /* aranżacja pierwszego kafelka -> emoji na boki */
+  .item:nth-child(1) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* kontener -> mniejsze szerokosci ekranu */
+  @media (max-width: 1024px) {
+    /* kontener jako kolumna, schodki na środku */
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+}

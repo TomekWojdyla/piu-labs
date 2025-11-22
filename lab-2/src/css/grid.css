@@ -32,6 +32,30 @@ aside {
   background: transparent;
 }
 
+/* ukryty checkbox – steruje menu */
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ikona hamburgera / krzyżyka */
+.menu-icon {
+  margin-left: auto;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* domyślnie hamburger */
+.menu-icon::before {
+  content: '☰';
+}
+
+/* po zaznaczeniu checkboxa zamiana na X */
+#menu-toggle:checked + header .menu-icon::before {
+  content: '✕';
+}
+
 header {
   grid-area: header;
   display: flex;
@@ -63,15 +87,31 @@ header h1 {
   font-size: 2rem;
 }
 
-/* NAV – mobilnie wyśrodkowane */
+/* NAV – mobilnie wyśrodkowane, pod hamburgera */
 nav {
   grid-area: nav;
   background: #1e88e5;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   text-align: center;
+  position: fixed;
+  top: 60px; /* zostawiamy widoczny nagłówek z krzyżykiem, to jest trochę słabe, bo bedzie sie przewijała treść strony na tym pasku 60px od góry, ale na tą chwilę tak zostawiam :) dałoby się to poprawić jeszcze trochę  */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  z-index: 10;
+}
+
+/* po "otwarciu" menu */
+#menu-toggle:checked ~ nav {
+  display: flex;
 }
 
 nav a {
+  display: block;
   color: white;
   text-decoration: none;
   margin: 0 0.5rem;
@@ -134,10 +174,26 @@ footer {
     max-width: 1200px; /* maksymalna szerokość układu - potem dodają się marginesy boczne*/
   }
 
+  /* w szerokiej wersji klasyczne menu,
+     checkbox i ikona nie są potrzebne */
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
   /* menu wyrównane do lewej w szerokiej wersji */
   nav {
     text-align: left;
     padding-left: 1.5rem;
+    position: static;
+    display: block;
+  }
+
+  nav a {
+    display: inline-block;
   }
 
   nav a:first-child {

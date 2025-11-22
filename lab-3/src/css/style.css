@@ -1,0 +1,55 @@
+/* Minimalny reset  */
+html {
+  font-size: 16px; /* bazowy rozmiar czcionki */
+  font-family: system-ui, sans-serif; /* font systemowy */
+  line-height: 1.5; /* lepsza czytelność */
+}
+body {
+  margin: 1rem;
+  padding: 0;
+}
+
+a {
+  color: #0066cc; /* niebieski kolor linków */
+  text-decoration: none; /* bez podkreślenia */
+  font-size: 1.4rem;
+}
+a:hover {
+  text-decoration: underline; /* podkreślenie przy najechaniu */
+}
+
+/* Dodatkowe stylowanie dla Homepage Lab-2 */
+/*wyśrodkowanie poziome nawigacji*/
+nav {
+  text-align: center;
+}
+
+h1.centered {
+  text-align: center;
+}
+
+/*stylowanie odnośników do pod-stron Lab1*/
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+a.subpage {
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  width: 200px;
+  margin: 20px;
+  background-color: #92d8f4;
+  color: black !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* płynne przejście */
+}
+
+a.subpage:hover {
+  transform: scale(1.1); /* powiększenie o 10% */
+  box-shadow: 0 0 25px black; /* mocniejszy cień */
+  background-color: #87eb99;
+  text-decoration: none; /* brak podkreślenia */
+}

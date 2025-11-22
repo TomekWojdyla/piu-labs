@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria Demo</title>
+    <link rel="stylesheet" href="../css/galeria.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="../../index.html">Powrót do Lab 2</a>
+      <hr />
+    </nav>
+
+    <header class="page-header">
+      <h1>Galeria olimpijska</h1>
+      <p>
+        Responsywna galeria z obrazami dyscyplin lekkoatletycznych w formatach
+        AVIF i PNG.
+      </p>
+    </header>
+
+    <main>
+      <section class="gallery">
+        <!-- KULOMIOT -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/kulomiot_500.avif   500w,
+                ../images/kulomiot_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/kulomiot_500.png   500w,
+                ../images/kulomiot_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/kulomiot_1000.png"
+              alt="Kulomiot"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Kulomiot</figcaption>
+        </figure>
+
+        <!-- SKOCZEK WZWYŻ -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/skoczek_wzwyz_500.avif   500w,
+                ../images/skoczek_wzwyz_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/skoczek_wzwyz_500.png   500w,
+                ../images/skoczek_wzwyz_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/skoczek_wzwyz_1000.png"
+              alt="Skoczek wzwyż"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Skoczek wzwyż</figcaption>
+        </figure>
+
+        <!-- DYSKOBOL -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/dyskobol_500.avif   500w,
+                ../images/dyskobol_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/dyskobol_500.png   500w,
+                ../images/dyskobol_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/dyskobol_1000.png"
+              alt="Dyskobol"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Dyskobol</figcaption>
+        </figure>
+
+        <!-- SPRINTER -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/sprinter_500.avif   500w,
+                ../images/sprinter_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/sprinter_500.png   500w,
+                ../images/sprinter_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/sprinter_1000.png"
+              alt="Sprinter"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Sprinter</figcaption>
+        </figure>
+
+        <!-- OSZCZEPNIK -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/oszczepnik_500.avif   500w,
+                ../images/oszczepnik_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/oszczepnik_500.png   500w,
+                ../images/oszczepnik_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/oszczepnik_1000.png"
+              alt="Oszczepnik"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Oszczepnik</figcaption>
+        </figure>
+
+        <!-- TYCZKARZ -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/tyczkarz_500.avif   500w,
+                ../images/tyczkarz_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/tyczkarz_500.png   500w,
+                ../images/tyczkarz_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/tyczkarz_1000.png"
+              alt="Tyczkarz"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Tyczkarz</figcaption>
+        </figure>
+
+        <!-- SKOCZEK W DAL -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/skoczek_w_dal_500.avif   500w,
+                ../images/skoczek_w_dal_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/skoczek_w_dal_500.png   500w,
+                ../images/skoczek_w_dal_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/skoczek_w_dal_1000.png"
+              alt="Skoczek w dal"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Skoczek w dal</figcaption>
+        </figure>
+
+        <!-- MARATOŃCZYK -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/maratonczyk_500.avif   500w,
+                ../images/maratonczyk_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/maratonczyk_500.png   500w,
+                ../images/maratonczyk_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/maratonczyk_1000.png"
+              alt="Maratończyk"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Maratończyk</figcaption>
+        </figure>
+
+        <!-- MŁOCIARZ -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/mlociarz_500.avif   500w,
+                ../images/mlociarz_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/mlociarz_500.png   500w,
+                ../images/mlociarz_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/mlociarz_1000.png"
+              alt="Młociarz"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Młociarz</figcaption>
+        </figure>
+
+        <!-- SZTAFETA -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/sztafeta_500.avif   500w,
+                ../images/sztafeta_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/sztafeta_500.png   500w,
+                ../images/sztafeta_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/sztafeta_1000.png"
+              alt="Sztafeta"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Sztafeta</figcaption>
+        </figure>
+
+        <!-- PŁOTKARZ -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/plotkarz_500.avif   500w,
+                ../images/plotkarz_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/plotkarz_500.png   500w,
+                ../images/plotkarz_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/plotkarz_1000.png"
+              alt="Płotkarz"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Płotkarz</figcaption>
+        </figure>
+
+        <!-- TRÓJSKOCZEK -->
+        <figure class="gallery-item">
+          <picture>
+            <!-- AVIF -->
+            <source
+              type="image/avif"
+              srcset="
+                ../images/trojskoczek_500.avif   500w,
+                ../images/trojskoczek_1000.avif 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- PNG fallback -->
+            <source
+              type="image/png"
+              srcset="
+                ../images/trojskoczek_500.png   500w,
+                ../images/trojskoczek_1000.png 1000w
+              "
+              sizes="
+                (max-width: 799px) 500px,
+                (max-width: 1199px) 1000px,
+                (max-width: 1599px) 500px,
+                1000px
+              "
+            />
+            <!-- uniwersalny fallback -->
+            <img
+              src="../images/trojskoczek_1000.png"
+              alt="Trójskoczek"
+              loading="lazy"
+            />
+          </picture>
+          <figcaption>Trójskoczek</figcaption>
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>

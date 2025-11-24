@@ -66,6 +66,7 @@ a:hover {
   border: 3px solid var(--leading-color);
   border-radius: 8px;
   overflow: hidden;
+  transition: border-color 0.3s ease;
 }
 
 .product-image {
@@ -76,13 +77,36 @@ a:hover {
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
+/* Wersja bez animacji */
+/* .product-card:has(#blue:checked) .product-image[product-color='blue'],
+.product-card:has(#red:checked) .product-image[product-color='red'],
+.product-card:has(#green:checked) .product-image[product-color='green'],
+.product-card:has(#yellow:checked) .product-image[product-color='yellow'] {
+  opacity: 1;
+} */
+
+/* Wersja z animacją */
+/* WYBRANY kolor – wjeżdża z lewej do środka */
 .product-card:has(#blue:checked) .product-image[product-color='blue'],
 .product-card:has(#red:checked) .product-image[product-color='red'],
 .product-card:has(#green:checked) .product-image[product-color='green'],
 .product-card:has(#yellow:checked) .product-image[product-color='yellow'] {
   opacity: 1;
+  transform: translateX(0); /* środek ramki */
+}
+
+/* POZOSTAŁE kolory – wyjeżdżają w prawo */
+.product-card:has(#blue:checked) .product-image:not([product-color='blue']),
+.product-card:has(#red:checked) .product-image:not([product-color='red']),
+.product-card:has(#green:checked) .product-image:not([product-color='green']),
+.product-card:has(#yellow:checked)
+  .product-image:not([product-color='yellow']) {
+  opacity: 0;
+  transform: translateX(100%); /* poza ramką, w prawo */
 }
 
 .product-card:has(#red:checked) {
@@ -126,6 +150,7 @@ a:hover {
   font-weight: bold;
   padding: 0.25rem 0.6rem;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 .product-description {
   line-height: 1.6;
@@ -156,6 +181,11 @@ a:hover {
   margin: 4px;
   border-radius: 50%;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.color-label:hover {
+  transform: scale(1.3);
 }
 
 .color-label.blue {
@@ -184,6 +214,20 @@ a:hover {
   box-shadow: 0 0 0 3px white, 0 0 0 5px black;
 }
 
+/* WYBÓR ROZMIARU BEZ ANIMACJI*/
+/* #size-options label {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 3px solid black;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+} */
+
+/* WYBÓR ROZMIARU Z ANIMACJĄ*/
 #size-options label {
   display: grid;
   place-items: center;
@@ -193,16 +237,108 @@ a:hover {
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  position: relative;
+  z-index: 2;
+}
+
+#size-options div {
+  position: relative;
+}
+
+#size-options div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px; /* rozmiar animowanego tła jest z rozmysłem ustawiony jako między: 40px i 1.3x 40px(hover) żeby przyzwoicie to wyglądało na mój gust:) */
+  height: 48px;
+  background-color: var(--leading-color);
+  border-radius: 6px;
+  z-index: 1;
+
+  /* zamiast translateX – tylko pion, start z 0 */
+  transform: translateY(0);
+
+  /* animujemy left (ruch w poziomie) + kolor */
+  transition: left 0.3s cubic-bezier(0.5, -1.2, 0.5, 1.2),
+    background-color 0.3s ease;
+}
+
+#size-options div:has(#size-small:checked)::before {
+  left: 0;
+  animation: jump-s 0.5s ease-out;
+}
+#size-options div:has(#size-medium:checked)::before {
+  left: calc(40px + 1rem);
+  animation: jump-m 0.5s ease-out;
+}
+#size-options div:has(#size-large:checked)::before {
+  left: calc(2 * (40px + 1rem));
+  animation: jump-l 0.5s ease-out;
+}
+#size-options div:has(#size-xlarge:checked)::before {
+  left: calc(3 * (40px + 1rem));
+  animation: jump-xl 0.5s ease-out;
+}
+
+@keyframes jump-s {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes jump-m {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes jump-l {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes jump-xl {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 #size-options label:hover {
   border-color: var(--leading-color);
+  transform: scale(1.3);
 }
 
 #size-options input[type='radio']:checked + label {
   background-color: var(--leading-color);
   border-color: var(--leading-color);
   color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .price-text {
@@ -223,8 +359,10 @@ a:hover {
   border: 3px solid black;
   border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .buy-btn:hover {
   background-color: var(--leading-color-stressed);
+  transform: scale(1.2) translateY(-8px);
 }

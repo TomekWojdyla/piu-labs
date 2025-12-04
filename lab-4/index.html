@@ -2,11 +2,129 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <title>Lab 4</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Lab 4: Tablica Kanban</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/kanban.css" />
+    <script src="./src/js/kanban.js" defer></script>
   </head>
   <body>
-    <h1>Lab 4</h1>
-    <a href="..">Powrót</a>
+    <nav>
+      <a href="../index.html">Powrót do listy labolatoriów</a>
+      <hr />
+    </nav>
+
+ <main>
+      <div class="kanban-board-container">
+        <h1 class="kanban-board-title">Tablica Kanban</h1>
+
+        <div class="kanban-columns">
+          <!-- Kolumna: Do zrobienia -->
+          <section class="kanban-column" data-column="todo">
+            <div class="kanban-column-header">
+              <h2 class="kanban-column-title">Do zrobienia</h2>
+              <div class="kanban-column-counter">0</div>
+            </div>
+            <hr />
+
+            <button class="kanban-add-card-btn" type="button">
+              Dodaj kartę
+            </button>
+            <hr />
+
+            <div class="kanban-column-toolbar">
+              <button class="kanban-color-column-btn" type="button">
+                Koloruj kolumnę
+              </button>
+              <button
+                class="kanban-sort-btn kanban-sort-date-btn"
+                type="button"
+              >
+                Sortuj (data)
+              </button>
+              <button
+                class="kanban-sort-btn kanban-sort-abc-btn"
+                type="button"
+              >
+                Sortuj (abc)
+              </button>
+            </div>
+            <hr />
+
+            <div class="kanban-cards"></div>
+          </section>
+
+          <!-- Kolumna: W trakcie -->
+          <section class="kanban-column" data-column="inprogress">
+            <div class="kanban-column-header">
+              <h2 class="kanban-column-title">W trakcie</h2>
+              <div class="kanban-column-counter">0</div>
+            </div>
+            <hr />
+
+            <button class="kanban-add-card-btn" type="button">
+              Dodaj kartę
+            </button>
+            <hr />
+
+            <div class="kanban-column-toolbar">
+              <button class="kanban-color-column-btn" type="button">
+                Koloruj kolumnę
+              </button>
+              <button
+                class="kanban-sort-btn kanban-sort-date-btn"
+                type="button"
+              >
+                Sortuj (data)
+              </button>
+              <button
+                class="kanban-sort-btn kanban-sort-abc-btn"
+                type="button"
+              >
+                Sortuj (abc)
+              </button>
+            </div>
+            <hr />
+
+            <div class="kanban-cards"></div>
+          </section>
+
+          <!-- Kolumna: Zrobione -->
+          <section class="kanban-column" data-column="done">
+            <div class="kanban-column-header">
+              <h2 class="kanban-column-title">Zrobione</h2>
+              <div class="kanban-column-counter">0</div>
+            </div>
+            <hr />
+
+            <button class="kanban-add-card-btn" type="button">
+              Dodaj kartę
+            </button>
+            <hr />
+
+            <div class="kanban-column-toolbar">
+              <button class="kanban-color-column-btn" type="button">
+                Koloruj kolumnę
+              </button>
+              <button
+                class="kanban-sort-btn kanban-sort-date-btn"
+                type="button"
+              >
+                Sortuj (data)
+              </button>
+              <button
+                class="kanban-sort-btn kanban-sort-abc-btn"
+                type="button"
+              >
+                Sortuj (abc)
+              </button>
+            </div>
+            <hr />
+
+            <div class="kanban-cards"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+    </main>
   </body>
 </html>

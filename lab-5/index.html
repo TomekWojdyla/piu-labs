@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kształty</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/shapes.css" />
+    <script type="module" src="./src/js/app.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="../index.html">Powrót do listy labolatoriów</a>
+      <hr />
+    </nav>
+    <main>
+      <h1>Kształty – wersja z zarządzaniem stanem</h1>
+
+      <section class="controls">
+        <div class="controls-column">
+          <button id="addSquare">Dodaj kwadrat ⬛+</button>
+          <button id="recolorSquares">Przekoloruj kwadraty 🟧🟪🟨</button>
+          <div class="counters">
+            <h3>Liczba kwadratów:</h3>
+            <div class="shape-counter" id="cntSquares">0</div>
+          </div>
+        </div>
+        <div class="controls-column">
+          <button id="addCircle">Dodaj kółko ⚫+</button>
+          <button id="recolorCircles">Przekoloruj kółka 🟠🟣🟡</button>
+          <div class="counters">
+            <h3>Liczba kółek:</h3>
+            <div class="shape-counter" id="cntCircles">0</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>🔽 Tablica z dodanymi kształtami 🔽</h2>
+        <div id="board" class="board" aria-label="pole z kształtami">
+          <!-- tutaj będą pojawiały się dynamicznie dodawane kształty-->
+        </div>
+      </section>
+
+      <section class="notes">
+        <h2>Jak to działa?</h2>
+        <p>
+          Cały stan trzymany jest w globalnym store -> store.js (wzorzec
+          <strong>Singleton</strong>).
+        </p>
+        <p>
+          Stan jest zapisywany w <strong>localStorage</strong> w store.js (F5
+          "trzyma" zawartość).
+        </p>
+        <p>
+          Liczniki kształtów są obsłużone dynamicznie przez getter
+          <strong>getCounts</strong> w store.js.
+        </p>
+        <p>
+          UI tylko reaguje na zmiany stanu (wzorzec
+          <strong>Obserwator</strong>) -> ui.js.
+        </p>
+        <p>
+          App.js (ładowany przez html) importuje ui.js oraz store.js i posiada
+          wyłącznie obsługę zdarzeń (buttony + kształty) przez metody ze
+          store.js.
+        </p>
+        <p>
+          Kliknięcie w kształt w ramce usuwa go – obsługa zdarzenia jest
+          <strong>zdelegowana na kontener</strong> - nasłuchiwanie eventu na id
+          <strong>#board</strong> ustawiony dla kontenera w app.js.
+        </p>
+        <p>
+          Helpers.js ma tylko jedną metodę do losowego generowania pastelowych
+          kolorów. Importowana do store.js i użyta przy dodawaniu nowego
+          kształtu.
+        </p>
+        <p>
+          <strong>Minimum responsywności</strong> - przy ekranie < 900px kolumny
+          przejdą jedna pod drugą; pole (board) korzysta z 90% szerokości ekranu
+          a kształty się "zawijają" w zależności od szerokości okna.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

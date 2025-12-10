@@ -1,0 +1,124 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 30px;
+}
+
+.controls {
+  display: flex; /* ustawia dzieci (divy) w jednym rzędzie */
+  gap: 40px; /* odstęp między kolumnami */
+  justify-content: center; /* wyśrodkowanie poziome */
+  align-items: flex-start; /* wyrównanie do góry */
+}
+
+/* obie kolumny niech będą "kolumnami" w środku */
+.controls > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* wąskie ekrany - zawinięcie kolumn z przyciskami*/
+@media (max-width: 900px) {
+  .controls {
+    flex-wrap: wrap;
+  }
+}
+
+button {
+  margin: 4px;
+  padding: 12px;
+  min-width: 300px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid black;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #a5f5a5;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #7fdc7f;
+  box-shadow: 0 0 25px black; /* mocniejszy cień */
+  transform: scale(1.1);
+}
+
+.counters {
+  margin: 12px 0;
+}
+
+/* Prostokątny licznik */
+.shape-counter {
+  font-size: 2rem;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  min-width: 32px;
+  text-align: center;
+}
+
+.board {
+  margin: 12px auto;
+  max-width: 90%;
+  min-height: 65px;
+  border: 6px dashed #ccc;
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: #fafafa;
+}
+
+.shape {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  border: 3px solid black;
+  overflow: hidden;
+}
+
+.shape::after {
+  content: '✖';
+  font-size: 40px;
+  font-weight: bold;
+  color: red;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* domyślnie niewidoczny */
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.shape:hover {
+  opacity: 0.4; /* To opacity będzie działąło też na X ale na tą chwilę niech tak będzie - było by fajniej jakby X był wyraźny */
+  box-shadow: 0 0 25px black;
+  transform: scale(1.2);
+}
+
+.shape:hover::after {
+  opacity: 1; /* X pojawia się przy hover */
+}
+
+.square {
+  border-radius: 6px;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.notes {
+  color: #444;
+  line-height: 1.5;
+  max-width: 1200px;
+  margin: 16px auto 0;
+}
